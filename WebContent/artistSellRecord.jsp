@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!--[if IE 8]>    <html class="ie8" lang="en"> <![endif]-->
 <!--[if gt IE 8]><!--><html lang="en-US" ><!--<![endif]-->
 
@@ -32,49 +32,6 @@ img.emoji {
 }
 
 
-
-
-.file {
-    position: relative;
-    display: inline-block;
-    background: #ffffff;
-    border: 1px solid #4f6d96;
-    border-radius: 0;
-    padding: 4px 12px;
-    overflow: hidden;
-    color: #fbf9d8;
-    text-decoration: none;
-    text-indent: 0;
-    line-height: 20px;
-    margin-left: 16%;
-    width: 300px;
-    height: 30px;
-    text-align: center;
-}
-.file input {
-    position: absolute;
-    font-size: 100px;
-    right: 0;
-    top: 0;
-    opacity: 0;
-    text-align: center;
-}
-.file:hover {
-    background: #2c5183;
-    border-color: #4f6d96;
-    color: #ffffff;
-    text-decoration: none;
-    text-align: center;
-}
-
-@media only screen and (max-width:600px){
-  .file{
-  width: 70%;
-  height: 25px;
-  margin-left: 25%;
-}
-}
-
 </style>
 
 <link rel='stylesheet' id='icons-css'  href='http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css?ver=4.3.1' type='text/css' media='all' />
@@ -82,9 +39,9 @@ img.emoji {
 <script type='text/javascript' src='http://cdn.lamingtondrive.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.2.1'></script>
 <script type='text/javascript' src='http://cdn.lamingtondrive.com/wp-content/themes/lamingtondrive/js/min/init.min.js?ver=4.3.1'></script>
 
-<link rel='stylesheet' id='style-css'  href='css/auction.css' type='text/css' media='all' />
 <link rel='stylesheet' id='style-css'  href='css/style.css' type='text/css' media='all' />
-</head>
+<link rel='stylesheet' id='style-css'  href='css/artistRecord.css' type='text/css' media='all' />
+  </head>
 
   <body>
 
@@ -93,7 +50,7 @@ img.emoji {
       <div class="container clearfix">
 
         <div id="logo">
-          <a href="/">
+          <a href="index.jsp">
 <svg width="98px" height="98px" viewBox="0 0 98 98" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <defs></defs>
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
@@ -108,13 +65,13 @@ img.emoji {
         <nav class="clearfix">
           <div class="menu-menu-1-container">
           <ul id="menu-menu-1" class="menu">
-                            <li id="menu-item-50" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-50"><a href="index.html">首页</a></li>
-                            <li id="menu-item-98" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-98"><a href="artwork.html">艺术品</a></li>
-                            <li id="menu-item-98" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-98"><a href="">艺术家</a></li>
+                            <li id="menu-item-50" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-50"><a href="index.jsp">首页</a></li>
+                            <li id="menu-item-98" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-98"><a href="artworks.jsp">艺术品</a></li>
+                            <li id="menu-item-98" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-98"><a href="artists.jsp">艺术家</a></li>
                             <li id="menu-item-52" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-52"><a href="">艺术定制</a></li>
                             <li id="menu-item-617" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-617"><a href="">拍卖</a></li>
                             <li id="menu-item-617" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-617"><a href="">商城</a></li>
-                            <li id="menu-item-617" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-617"><a href="">艺术资讯</a></li>
+                            <li id="menu-item-617" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-617"><a href="info_show.jsp">艺术资讯</a></li>
                             <li id="menu-item-617" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-617">您好,XXX</li>
                     </ul>
                     </div>        
@@ -128,13 +85,13 @@ img.emoji {
     <div id="mobile_menu">
       <div class="menu-menu-1-container">
       <ul id="menu-menu-2" class="menu">
-              <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-50"><a href="index.html">首页</a></li>
-                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-98"><a href="artwork.html">艺术品</a></li>
-                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-98"><a href="">艺术家</a></li>
+              <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-50"><a href="index.jsp">首页</a></li>
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-98"><a href="artworks.jsp">艺术品</a></li>
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-98"><a href="artists.jsp">艺术家</a></li>
                     <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-52"><a href="">艺术定制</a></li>
                     <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-617"><a href="">拍卖</a></li>
                     <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-617"><a href="">商城</a></li>
-                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-617"><a href="">艺术资讯</a></li>
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-617"><a href="info_show.jsp">艺术资讯</a></li>
                     <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-617"><a href="">您好,XXX</a></li>
             </ul>
             </div>      
@@ -147,71 +104,53 @@ img.emoji {
     <div id="content">
       <div id="dynamic" class="page page-id-96 page-template page-template-_templates page-template-shows page-template-_templatesshows-php">
 
-        <div class="container" id="1">    
+        <div class="container">    
             <div class="artistInformation">
                  <div class="artistTouxiang">
-                    <img src="images/user/huangjingzheTouxiang.jpg">
+                    <img src="images/user/${user.imageURL }">
                  </div>
                  <div class="artistText"> 
-                    <h1>黄京哲</h1>
-                    <h2>1972，中国</h2>
-                    <h3>油画</h3>
-                    <h4>中央美院</h4>       
+                    <h1>${user.realName }</h1>
+                    <h2>${user.birthday.year },${user.country }</h2>
+                    <h3>${user.addresses[0].province }，${user.addresses[0].country }</h3>
+                    <h4>${user.education }</h4>       
                  </div>
             </div> 
         </div>
 
-        <div class="container" id="2">
-        <hr/>
-          <form action="" method="post" accept-charset="utf-8" class="examples part">
-            
-            <!--此处应该自动生成种类-->
-                <div class="fields">
-                               <span class="dk_wrap">
-                                    <select name="kind" class="cs-select cs-skin-elastic">
-                                        <option value="" disabled selected data-class="disabled">种&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;类</option>
-                                        <option value="ALL">全部</option>
-                                        <option value="AU">绘画</option>
-                                        <option value="CA">油画</option>
-                                        <option value="DE">水墨</option>
-                                        <option value="JP">摄影</option>
-                                        <option value="GB">版画</option>
-                                        <option value="US">雕塑</option>
-                                        <option value="US">陶瓷</option>
-                                    </select>
-                               </span>
-                </div>
-            </form>
-            </div>
+        <div class="container">
+          <div id="tabs0"> 
+            <ul class="menu0" id="menu0"> 
+              <li><a href="artistCenter.jsp" >个人信息</a></li> 
+              <li><a href="artistInfoMoney.jsp">我的定制</a></li> 
+              <li><a href="artistGetAllArtwork">正在售卖</a></li> 
+              <li><a href="artistArtworkUpload.jsp">上传作品</a></li>
+              <li><a href="artistGetAddress">地址管理</a></li>   
+              <li class="hover" ><a href="artistGetAllSellOrder">售卖记录</a></li>  
+            </ul> 
+           <hr />
+          </div>
+          
+        </div>
+         
         <!--此处放tab  艺术品的分类-->
         <!--排序方式（上市时间 更新世家）-->
         
         <div class="container">
-
-              <form action="setDetailCustomMade" id="infoCenter" name="auctionDetail">
-                   
-                  <b>尺&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;寸：</b><input type="text" id="size"  name="size"/><br><br>
-
-                  <!--可编辑-->
-                  <b>价格区间:</b><input type="text" id="price1"  name="price1"/>&nbsp;－&nbsp;<input type="text" id="price2"  name="price2"/><br><br>
-
-                  <!--可编辑-->
-                  <b>类&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别：</b><input type="text" name="type" id="type" /><br><br>
-
-                  <!--可编辑-->
-                  <b>具体描述:</b><textarea name="descrition" id="descrition" onBlur="javascript:setdescriptionInput();"></textarea><br><br>
+              <div class="cartItem">
+               <c:forEach items="${orderItemList}" var="orderLineItem">
                   
-                  <input type="hidden" name="descriptionInput" id="descriptionInput" value=""></input>
-
-                  <!--上传头像  还没有写-->
-                  <a href="javascript:;" class="file">选择参考图片
-                  <input type="file" onchange="javascript:setImagePreview();" id="doc" name="thefile"/>
-                  </a><br><br>
-                  
-                  <input type="submit" value="提交" name="" id="tijiao"  class="button"><br><br>
-                      <!--<input type="submit" value="忘记密码" name="" id=""  class="button">-->
-              </form>
-            
+                  <div class="cartArtwork">
+                      <ul>
+                          <li><img src="images/user/${orderLineItem.artwork.imageUrl }"/></li>
+                          <li id="artistName"><p>${orderLineItem.artwork.name }</p></li>
+                          <li id="artworkPrice" class="artworkPrice"><p class="price">${orderLineItem.transactionPrice}</p></li>
+                          <li id="artworkEdit"><a href="">${orderLineItem.number }</a></li>
+                      </ul>
+                  </div>
+                 
+              </c:forEach>
+              </div>
         </div>  
       
 
@@ -241,21 +180,6 @@ img.emoji {
       </div>
     </div>
   </section>
-
-  <script src="js/user/classie.js"></script>
-    <script src="js/user/selectFx.js"></script>
-    <script>
-      (function() {
-        [].slice.call( document.querySelectorAll( 'select.cs-select' ) ).forEach( function(el) {  
-          new SelectFx(el);
-        } );
-      })();
-      function setdescriptionInput()
-      {
-    	  document.auctionDetail.descriptionInput.value=document.auctionDetail.descrition.value;
-      }
-    </script>
-    
 <script type='text/javascript' src='js/user/plugins.min.js'></script>
 <script type='text/javascript' src='js/user/scripts.min.js'></script>
   </body>

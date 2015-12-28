@@ -5,6 +5,7 @@ package cn.edu.xmu.artworkauction.dao;
 
 import cn.edu.xmu.artworkauction.entity.Artist;
 import cn.edu.xmu.artworkauction.entity.User;
+import cn.edu.xmu.artworkauction.entity.OrderLineItem;
 
 import java.util.List;
 
@@ -34,4 +35,6 @@ public interface ArtistDAO {
 	public void deleteArtwork(Artwork artwork);
 	public void updateArtwork(Artwork artwork);
 	public List<Artist> getAllArtist();
+	//根据艺术家查询 OrderLineItem
+	public List<OrderLineItem> getAllOrderLineItemsByArtist(Artist artist);
 }

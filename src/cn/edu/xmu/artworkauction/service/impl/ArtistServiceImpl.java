@@ -18,6 +18,7 @@ import cn.edu.xmu.artworkauction.dao.ArtworkDAO;
 import cn.edu.xmu.artworkauction.entity.Address;
 import cn.edu.xmu.artworkauction.entity.Artist;
 import cn.edu.xmu.artworkauction.entity.Artwork;
+import cn.edu.xmu.artworkauction.entity.OrderLineItem;
 import cn.edu.xmu.artworkauction.service.ArtistService;
 
 /**
@@ -82,6 +83,12 @@ public class ArtistServiceImpl implements ArtistService{
 	public List<Artwork> getArtistArtworks(Artist artist) 
 	{
 		return artworkDAO.getArtworkByArtist(artist);
+	}
+
+	@Override
+	public List<OrderLineItem> getAllOrderLineItemsByArtist(Artist artist) {
+		// TODO Auto-generated method stub
+		return artistDAO.getAllOrderLineItemsByArtist(artist);
 	}
 
 }

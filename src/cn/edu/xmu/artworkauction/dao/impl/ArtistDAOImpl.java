@@ -17,6 +17,8 @@ import cn.edu.xmu.artworkauction.dao.ArtistDAO;
 import cn.edu.xmu.artworkauction.entity.Address;
 import cn.edu.xmu.artworkauction.entity.Artist;
 import cn.edu.xmu.artworkauction.entity.Artwork;
+import cn.edu.xmu.artworkauction.entity.Order;
+import cn.edu.xmu.artworkauction.entity.OrderLineItem;
 import cn.edu.xmu.artworkauction.entity.User;
 import cn.edu.xmu.artworkauction.utils.shopMaxUploadNumber;
 
@@ -209,6 +211,15 @@ public class ArtistDAOImpl implements ArtistDAO{
 		return (List<Artist>)sessionFactory.getCurrentSession()
 				.getNamedQuery("@HQL_getAllArtist")
 				.list();
+	}
+
+	@Override
+	public List<OrderLineItem> getAllOrderLineItemsByArtist(Artist artist) {
+		// TODO Auto-generated method stub
+		Query query = sessionFactory.getCurrentSession().getNamedQuery("@HQL_getOrderLineItemByArtist");
+		query.setEntity(0, artist);
+		List<OrderLineItem> orderItemList=(List<OrderLineItem>)query.list();
+		return orderItemList;
 	}
 
 	

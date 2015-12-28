@@ -123,10 +123,22 @@ img.emoji {
 
 .paixu .paixu-box{
     font-size: 20px;
-    border:3px solid #dfdfdf;
+    border: 3px solid #cdd0d9;
+    padding: 5px 10px;
     display: inline;
     margin-right: 4px;
 }
+
+@media only screen and (max-width:600px) {
+  .paixu .paixu-box{
+    font-size: 14px;
+    border: 2px solid #cdd0d9;
+    padding: 5px 10px;
+    display: inline;
+    margin-right: 4px;
+  }
+}
+
 
 .container #tabs0{
   margin-bottom: 20px;
@@ -141,8 +153,37 @@ img.emoji {
 /*====================================================*/
 .menu0{ margin-left: 0;}
 .menu0 li { display:block; float: left; width:80px; text-align: center; cursor:pointer; background: #FFFFff; margin-bottom: 0;} 
-.menu0 li.hover { background: #dfdfdf; } 
+.menu0 li.hover { background: #cdd0d9; } 
 /*====================================================*/
+
+.add_to_cart {
+    display: inline-block;
+    border: 4px solid #cdd0d9;
+    padding: 10px 20px;
+    margin-bottom: 40px;
+    font-family: "Graphik Web SemiBold", Helvetica, Arial;
+    -webkit-font-smoothing: antialiased;
+    font-size: 18px;
+    opacity: 1;
+    line-height: 22px
+}
+
+.add_to_cart i {
+    opacity: .5
+}
+
+@media only screen and (max-width:600px) {
+  .add_to_cart {
+    margin-top:0;
+    float: left;
+    margin-left: 0;
+    text-align: center;
+    font-size: 16px;
+  }
+}
+
+
+
 
 </style>
 
@@ -220,9 +261,10 @@ img.emoji {
                  </div>
                  <div class="artistText"> 
                     <h1>${singleArtist.realName }</h1>
-                    <h2>${singleArtist.birthday },${singleArtist.country }</h2>
+                    <h2>${singleArtist.birthday.year+1900 },${singleArtist.country }</h2>
                     <h3>${singleArtist.description}</h3>
-                    <h4>${singleArtist.education }</h4>       
+                    <h4>${singleArtist.education }</h4> 
+                    <h1><a class="add_to_cart" href="getCustomMade" onclick=""><i class="fa fa-star"></i>&nbsp;&nbsp;发起定制&nbsp;&nbsp;</a></h1>      
                  </div>
             </div> 
           
@@ -252,23 +294,6 @@ img.emoji {
 
           <div class="container clearfix">
 
-              <a href="" class="past_show clearfix">
-              <div class="thumb" style="background-image: url('images/user/artwork1.jpg'); opacity:;"></div>
-            <div class="text">
-              <h4>黄京哲</h4>
-              <h3 style="color:#3e4251;">星夜4<br />
-</h3>
-            </div>
-             </a>
-
-             <a href="" class="past_show clearfix">
-              <div class="thumb" style="background-image: url('images/user/artwork2.jpg'); opacity:;"></div>
-            <div class="text">
-              <h4>黄京哲</h4>
-              <h3 style="color:#3e4251;">归歌13<br />
-</h3>
-            </div>
-             </a>
 
 			<c:forEach items='${ singleArtistArtworkList }' var="artwork" varStatus="status">
 					<a href="singleArtwork?id=${ artwork.id}" class="past_show clearfix" id='${ artwork.id}'>

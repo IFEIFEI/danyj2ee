@@ -1,7 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-
 <!--[if IE 8]>    <html class="ie8" lang="en"> <![endif]-->
 <!--[if gt IE 8]><!--><html lang="en-US" ><!--<![endif]-->
 
@@ -9,7 +8,7 @@
 
     <meta charset="UTF-8" />
 
-    <title>艺术家个人中心</title>
+    <title>上传定制图片</title>
 
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -30,7 +29,6 @@ img.emoji {
   background: none !important;
   padding: 0 !important;
 }
-
 
 
 
@@ -82,9 +80,10 @@ img.emoji {
 <script type='text/javascript' src='http://cdn.lamingtondrive.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.2.1'></script>
 <script type='text/javascript' src='http://cdn.lamingtondrive.com/wp-content/themes/lamingtondrive/js/min/init.min.js?ver=4.3.1'></script>
 
-<link rel='stylesheet' id='style-css'  href='css/auction.css' type='text/css' media='all' />
 <link rel='stylesheet' id='style-css'  href='css/style.css' type='text/css' media='all' />
-</head>
+<link rel='stylesheet' id='style-css'  href='css/artistCenter.css' type='text/css' media='all' />
+<link rel='stylesheet' id='style-css'  href='css/select.css' type='text/css' media='all' />
+  </head>
 
   <body>
 
@@ -147,64 +146,31 @@ img.emoji {
     <div id="content">
       <div id="dynamic" class="page page-id-96 page-template page-template-_templates page-template-shows page-template-_templatesshows-php">
 
-        <div class="container" id="1">    
+        <div class="container">    
             <div class="artistInformation">
                  <div class="artistTouxiang">
                     <img src="images/user/huangjingzheTouxiang.jpg">
                  </div>
                  <div class="artistText"> 
-                    <h1>黄京哲</h1>
-                    <h2>1972，中国</h2>
-                    <h3>油画</h3>
-                    <h4>中央美院</h4>       
+                    <h1>&nbsp;&nbsp;</h1>
+                    <h2>黄京哲</h2>
+                    <h3>&nbsp;&nbsp;</h3>
+                    <h4>&nbsp;&nbsp;</h4>       
                  </div>
             </div> 
         </div>
 
-        <div class="container" id="2">
-        <hr/>
-          <form action="" method="post" accept-charset="utf-8" class="examples part">
-            
-            <!--此处应该自动生成种类-->
-                <div class="fields">
-                               <span class="dk_wrap">
-                                    <select name="kind" class="cs-select cs-skin-elastic">
-                                        <option value="" disabled selected data-class="disabled">种&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;类</option>
-                                        <option value="ALL">全部</option>
-                                        <option value="AU">绘画</option>
-                                        <option value="CA">油画</option>
-                                        <option value="DE">水墨</option>
-                                        <option value="JP">摄影</option>
-                                        <option value="GB">版画</option>
-                                        <option value="US">雕塑</option>
-                                        <option value="US">陶瓷</option>
-                                    </select>
-                               </span>
-                </div>
-            </form>
-            </div>
-        <!--此处放tab  艺术品的分类-->
-        <!--排序方式（上市时间 更新世家）-->
         
         <div class="container">
+        <hr/>
 
-              <form action="setDetailCustomMade" id="infoCenter" name="auctionDetail">
+              <form action="" id="infoCenter">
                    
-                  <b>尺&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;寸：</b><input type="text" id="size"  name="size"/><br><br>
-
                   <!--可编辑-->
-                  <b>价格区间:</b><input type="text" id="price1"  name="price1"/>&nbsp;－&nbsp;<input type="text" id="price2"  name="price2"/><br><br>
-
-                  <!--可编辑-->
-                  <b>类&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别：</b><input type="text" name="type" id="type" /><br><br>
-
-                  <!--可编辑-->
-                  <b>具体描述:</b><textarea name="descrition" id="descrition" onBlur="javascript:setdescriptionInput();"></textarea><br><br>
-                  
-                  <input type="hidden" name="descriptionInput" id="descriptionInput" value=""></input>
+                  <b>具体描述：</b><textarea name="descrition" id="descrition"></textarea><br><br>
 
                   <!--上传头像  还没有写-->
-                  <a href="javascript:;" class="file">选择参考图片
+                  <a href="javascript:;" class="file">选择图片
                   <input type="file" onchange="javascript:setImagePreview();" id="doc" name="thefile"/>
                   </a><br><br>
                   
@@ -241,21 +207,6 @@ img.emoji {
       </div>
     </div>
   </section>
-
-  <script src="js/user/classie.js"></script>
-    <script src="js/user/selectFx.js"></script>
-    <script>
-      (function() {
-        [].slice.call( document.querySelectorAll( 'select.cs-select' ) ).forEach( function(el) {  
-          new SelectFx(el);
-        } );
-      })();
-      function setdescriptionInput()
-      {
-    	  document.auctionDetail.descriptionInput.value=document.auctionDetail.descrition.value;
-      }
-    </script>
-    
 <script type='text/javascript' src='js/user/plugins.min.js'></script>
 <script type='text/javascript' src='js/user/scripts.min.js'></script>
   </body>

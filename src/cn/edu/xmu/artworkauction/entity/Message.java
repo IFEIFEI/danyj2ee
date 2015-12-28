@@ -31,6 +31,15 @@ import org.hibernate.annotations.DynamicUpdate;
 @DynamicInsert
 @DynamicUpdate
 @Table(name="tb_message")
+@NamedQueries(
+		{
+			//按照收到信息的人查询信息
+			@NamedQuery(name="@HQL_GetAllMessageByUserTo",
+					query="from Message m where m.userTo=?"),
+			//按照收信人和状态进行查询
+			@NamedQuery(name="@HQL_GetAllMessageByUserToAndState",
+					query="from Message m where m.userTo=? and m.state=?")
+		})
 public class Message{
 	
 	@Id

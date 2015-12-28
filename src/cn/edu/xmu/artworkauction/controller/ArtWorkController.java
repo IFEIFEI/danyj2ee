@@ -38,12 +38,12 @@ public class ArtWorkController
 	@RequestMapping("/getArtwork")
 	public ModelAndView getArtWork(HttpServletRequest request,Model model)
 	{
-		if(allArtworkList==null)
-		{
+		//if(allArtworkList==null)
+		//{
 			List<Artwork> aList=artworkServiceImpl.getAllArtwork();
 			allArtworkList=aList;
 			request.getSession().setAttribute("allArtworkList", aList);
-		}
+		//}
 		ModelAndView modelAndView=new ModelAndView("/artworks");
 		return modelAndView;
 	}

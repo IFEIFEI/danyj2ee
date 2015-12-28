@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.DynamicInsert;
@@ -22,6 +24,11 @@ import org.hibernate.annotations.DynamicUpdate;
 @DynamicInsert
 @DynamicUpdate
 @Table(name="tb_orderLineItem")
+@NamedQueries(
+		{
+			@NamedQuery(name="@HQL_getOrderLineItemByArtist",
+			query="from OrderLineItem o where o.artwork.artist=?")
+		})
 public class OrderLineItem {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

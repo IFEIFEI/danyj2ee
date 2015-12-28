@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <!--[if IE 8]>    <html class="ie8" lang="en"> <![endif]-->
@@ -115,7 +116,12 @@ img.emoji {
                             <li id="menu-item-617" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-617"><a href="">拍卖</a></li>
                             <li id="menu-item-617" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-617"><a href="">商城</a></li>
                             <li id="menu-item-617" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-617"><a href="">艺术资讯</a></li>
-                            <li id="menu-item-617" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-617">您好,XXX</li>
+                             <c:if test="${empty user}">
+	                        	<li id="menu-item-617" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-617"><a href="login.jsp">登录</a></li>
+	                        </c:if>
+	                        <c:if test="${! empty user}">
+	                        	<li id="menu-item-617" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-617"><a href="artistCenter.jsp">登出</a></li>
+	                        </c:if>
                     </ul>
                     </div>        
                 </nav>
@@ -135,7 +141,12 @@ img.emoji {
                     <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-617"><a href="">拍卖</a></li>
                     <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-617"><a href="">商城</a></li>
                     <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-617"><a href="">艺术资讯</a></li>
-                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-617"><a href="">您好,XXX</a></li>
+                     <c:if test="${empty user}">
+	                        	<li id="menu-item-617" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-617"><a href="login.jsp">登录</a></li>
+	                        </c:if>
+	                        <c:if test="${! empty user}">
+	                        	<li id="menu-item-617" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-617"><a href="artistCenter.jsp">登出</a></li>
+	                        </c:if>
             </ul>
             </div>      
             <div class="hamburger">

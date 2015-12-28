@@ -116,7 +116,7 @@ img.emoji {
 	                        	<li id="menu-item-617" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-617"><a href="login.jsp">登录</a></li>
 	                        </c:if>
 	                        <c:if test="${! empty user}">
-	                        	<li id="menu-item-617" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-617"><a href="userCenter.jsp">欢迎您,${user.userName}</a></li>
+	                        	<li id="menu-item-617" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-617"><a href="userCenter.jsp">登出</a></li>
 	                        </c:if>
                     </ul>
                     </div>        
@@ -141,7 +141,7 @@ img.emoji {
 	                        	<li id="menu-item-617" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-617"><a href="login.jsp">登录</a></li>
 	                        </c:if>
 	                        <c:if test="${! empty user}">
-	                        	<li id="menu-item-617" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-617"><a href="userCenter.jsp">欢迎您,${user.userName}</a></li>
+	                        	<li id="menu-item-617" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-617"><a href="userCenter.jsp">登出</a></li>
 	                        </c:if>
             </ul>
             </div>      
@@ -169,7 +169,7 @@ img.emoji {
           <div id="tabs0"> 
             <ul class="menu0" id="menu0"> 
               <li class="hover" ><a href="userGetInfo" >个人信息</a></li> 
-              <li><a href="">个人账户</a></li> 
+              <li><a href="userInfoMoney.jsp">我的定制</a></li> 
               <li><a href="userAddress.jsp">地址管理</a></li>   
               <li><a href="userGetAllOrder">购买记录</a></li>
             <hr />

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <!--[if IE 8]>    <html class="ie8" lang="en"> <![endif]-->
@@ -163,11 +164,11 @@ img.emoji {
           <div id="tabs0"> 
             <ul class="menu0" id="menu0"> 
               <li><a href="artistCenter.jsp" >个人信息</a></li> 
-              <li><a href="artistInfoMoney.jsp">个人账户</a></li> 
+              <li><a href="artistInfoMoney.jsp">我的定制</a></li> 
               <li><a href="artistGetAllArtwork">正在售卖</a></li> 
               <li class="hover" ><a href="artistArtworkUpload.jsp">上传作品</a></li>
               <li><a href="artistGetAddress">地址管理</a></li>   
-              <li><a href="artistGetAllOrder">购买记录</a></li>  
+              <li><a href="artistGetAllSellOrder">售卖记录</a></li>  
             </ul> 
             <hr />
           </div>

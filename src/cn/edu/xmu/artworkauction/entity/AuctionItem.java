@@ -55,10 +55,24 @@ public class AuctionItem {
 		// TODO Auto-generated constructor stub
 	}
 	
+	
 	public AuctionItem(Payment payment,String imageURL,String description) {
 		setPayment(payment);
 		setImageURL(imageURL);
 		setDescription(description);
+	}
+	
+	//艺术家上传图片 改变auctionItem的状态
+	public void updateAuctionArtistUpload(String imageURL,String description)
+	{
+		setImageURL(imageURL);;
+		setDescription(description);
+	}
+	
+	//用户进行付款 改变auctionItem的状态
+	public void updateAuctionUserPay(Payment payment)
+	{
+		setPayment(payment);
 	}
 	
 	public Integer getId()

@@ -32,6 +32,21 @@ import org.hibernate.annotations.DynamicUpdate;
 @DynamicInsert
 @DynamicUpdate
 @Table(name="tb_auction")
+@NamedQueries(
+		{
+			//按照用户查找定制
+			@NamedQuery(name="@HQL_GetAllAuctionByUser",
+					query="from Auction m where m.user=?"),
+			//按照用户和定制的状态查找定制
+			@NamedQuery(name="@HQL_GetAllAuctionByUserAndState",
+					query="from Auction m where m.user=? and m.userState=? and m.artistState=? "),
+			//按照艺术家查找定制
+			@NamedQuery(name="@HQL_GetAllAuctionByArtist",
+					query="from Auction m where m.artist=?"),
+			//按照艺术家和定制的状态查找定制
+			@NamedQuery(name="@HQL_GetAllAuctionByArtistAndState",
+					query="from Auction m where m.artist=? and m.userState=? and m.artistState=?  ")
+		})
 public class Auction {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -77,9 +92,14 @@ public class Auction {
 	@Column
 	private String imageURL;
 	
+	//因为用户在接到艺术家的定制回馈的时候可以拒绝
     //定制状态
 	@Column
-	private Integer state;
+	private Integer userState;
+	
+	//定制状态
+	@Column
+	private Integer artistState;
 	
 	
 	public Auction() {
@@ -87,7 +107,7 @@ public class Auction {
 	}
 	
 	//用户提交请求的时候，进行初始化；
-	public Auction(User user,Artist artist,Double priceMax,Double priceMin,String type,String size, String description,String imageURL,Integer state)
+	public Auction(User user,Artist artist,Double priceMax,Double priceMin,String type,String size, String description,String imageURL,Integer userState)
 	{
 		setUser(user);
 		setArtist(artist);
@@ -97,7 +117,7 @@ public class Auction {
 		setType(type);
 		setDescription(description);
 		setImageURL(imageURL);
-		setState(state);
+		setUserState(userState);
 	}
 	
 	public Integer getId()
@@ -199,12 +219,21 @@ public class Auction {
 		this.imageURL=imageURL;
 	}
 	
-	public Integer getState()
+	public Integer getArtistState()
 	{
-		return state;
+		return artistState;
 	}
-	public void setState(Integer state)
+	public void setArtistState(Integer artistState)
 	{
-		this.state=state;
+		this.artistState=artistState;
 	}	
+	
+	public Integer getUserState()
+	{
+		return userState;
+	}
+	public void setUserState(Integer userState)
+	{
+		this.userState=userState;
+	}
 }

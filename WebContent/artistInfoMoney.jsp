@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <!--[if IE 8]>    <html class="ie8" lang="en"> <![endif]-->
@@ -31,8 +32,256 @@ img.emoji {
   padding: 0 !important;
 }
 
-</style>
+.artistTouxiang{
+  float: left; 
+}
 
+.artistTouxiang img{
+  width: 200px;
+  height: 200px;
+  border-radius:200px
+}
+
+.artistText{
+  float: left;
+  margin-left: 60px;
+  position: relative;
+}
+
+.artistText h1{
+  float: left;
+  clear: left;
+  font-size: 24px;
+  font-weight: bolder;
+  display: block;
+  margin-bottom: 5px;
+}
+.artistText h2{
+  float: left;
+  clear: left;
+  font-size: 20px;
+  color: #c4c3c2;
+  display: block;
+  margin-bottom: 20px;
+}
+.artistText h3{
+  float: left;
+  clear: left;
+  font-size: 16px;
+  display: block;
+  margin-bottom: 5px;
+}
+.artistText h4{
+  float: left;
+  clear: left;
+  font-size: 16px;
+  display: block;
+}
+
+@media only screen and (max-width:600px) {
+    .artistTouxiang img{
+  width: 130px;
+  height: 130px;
+  border-radius:130px;
+  margin-left: 0;
+  margin-bottom: 30px;
+  }
+}
+
+@media only screen and (max-width:600px) {
+  .artistText{
+    margin-top:0;
+    width: calc(100% - 140px);
+    float: left;
+    margin-left: 10px;
+    margin-right: 0;
+    text-align: center;
+  }
+}
+
+@media only screen and (max-width:600px) {
+  .artistText h1 h2 h3 h4{
+    text-align: center;
+  }
+}
+
+@media only screen and (max-width:600px) {
+  .artistText h1 h2 h3 h4{
+    padding-left: 20px;
+    font-size: 16px;
+  }
+}
+
+.paixu{
+  margin-bottom: 30px;
+  width: 100%;
+}
+
+.paixu h4{
+   font-size: 20px;
+   display: inline;
+}
+
+.paixu .paixu-box{
+    font-size: 20px;
+    border:3px solid #dfdfdf;
+    display: inline;
+    margin-right: 4px;
+}
+
+.container #tabs0{
+  margin-bottom: 20px;
+  margin-top: 60px;
+}
+
+@media only screen and (max-width:600px) {
+  .container #tabs0{
+  margin-top: 0;
+ }
+}
+
+.container #tabs0 hr{
+  width: 100%;
+  margin-bottom: 0;
+}
+
+
+/*====================================================*/
+.menu0{ margin-left: 0;}
+.menu0 li { display:block; float: left; width:16%; text-align: center; cursor:pointer; background: #FFFFff; margin-bottom: 0;} 
+.menu0 li.hover { background: #dfdfdf; } 
+
+@media only screen and (max-width:600px) {
+  .menu0 li {
+    font-size: 12px;
+  }
+}
+
+
+.auction{
+  display: inline-block;
+    width: 100%;
+    margin-bottom: 60px;
+}
+
+@media only screen and (max-width:700px){
+  .auction{
+  margin-bottom: 20px;
+}
+}
+
+.auction .auctionItem{
+    display: block;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.auctionItem ul{
+  width: 100%;
+  list-style:none;
+} 
+
+.auctionItem ul li{
+  float: left;
+  height: 50px;
+  margin-right: 20px;
+}
+
+
+@media only screen and (max-width:700px) {
+  .auctionItem ul li{
+  float: left;
+  height: 30px;
+  margin-right: 10px;
+   }
+}
+
+
+.auctionItem #artistName{
+  width: calc(25% - 20px);
+  margin-left: 0;
+}
+
+@media only screen and (max-width:700px) {
+  .auctionItem #artistName{
+  width: calc(45% - 100px);
+}
+}
+
+.auctionItem #artistName p{
+  text-align:left;
+}
+
+@media only screen and (max-width:700px) {
+  .auctionItem #artistName p{
+  font-size: 12px;
+}
+}
+
+.auctionItem #artworkName{
+  width: calc(40% - 20px);
+}
+
+@media only screen and (max-width:700px) {
+  .auctionItem #artworkName{
+  width: calc(45% - 40px);
+}
+}
+
+
+.auctionItem #artworkName p{
+  text-align:left;
+}
+
+@media only screen and (max-width:700px) {
+  .auctionItem #artworkName p{
+  font-size: 12px;
+}
+}
+
+.auctionItem #artworkPrice{
+  width: calc(10% - 20px);
+}
+
+.auctionItem #artworkPrice p{
+  text-align:left;
+}
+
+@media only screen and (max-width:700px) {
+  .auctionItem #artworkPrice {
+  width: 40px;
+}
+}
+
+@media only screen and (max-width:700px) {
+  .auctionItem #artworkPrice p{
+  font-size: 12px;
+}
+}
+
+.auctionItem #artworkState{
+  width: calc(25% - 20px);
+}
+
+.auctionItem #artworkState p{
+  text-align:left;
+}
+
+@media only screen and (max-width:700px){
+  .auctionItem #artworkState{
+  width: 80px;
+  font-size: 12px;
+}
+}
+
+@media only screen and (max-width:700px){
+  .auctionItem #artworkState p{
+  font-size: 12px;
+}
+}
+
+
+</style>
 <link rel='stylesheet' id='icons-css'  href='http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css?ver=4.3.1' type='text/css' media='all' />
 <script type='text/javascript' src='http://cdn.lamingtondrive.com/wp-includes/js/jquery/jquery.js?ver=1.11.3'></script>
 <script type='text/javascript' src='http://cdn.lamingtondrive.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.2.1'></script>
@@ -71,7 +320,12 @@ img.emoji {
                             <li id="menu-item-617" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-617"><a href="">拍卖</a></li>
                             <li id="menu-item-617" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-617"><a href="">商城</a></li>
                             <li id="menu-item-617" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-617"><a href="info_show.jsp">艺术资讯</a></li>
-                            <li id="menu-item-617" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-617">您好,XXX</li>
+                            <c:if test="${empty user}">
+	                        	<li id="menu-item-617" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-617"><a href="login.jsp">登录</a></li>
+	                        </c:if>
+	                        <c:if test="${! empty user}">
+	                        	<li id="menu-item-617" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-617"><a href="artistCenter.jsp">登出</a></li>
+	                        </c:if>
                     </ul>
                     </div>        
                 </nav>
@@ -91,7 +345,12 @@ img.emoji {
                     <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-617"><a href="">拍卖</a></li>
                     <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-617"><a href="">商城</a></li>
                     <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-617"><a href="info_show.jsp">艺术资讯</a></li>
-                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-617"><a href="">您好,XXX</a></li>
+                   <c:if test="${empty user}">
+	                        	<li id="menu-item-617" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-617"><a href="login.jsp">登录</a></li>
+	                        </c:if>
+	                        <c:if test="${! empty user}">
+	                        	<li id="menu-item-617" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-617"><a href="artistCenter.jsp">登出</a></li>
+	                        </c:if>
             </ul>
             </div>      
             <div class="hamburger">
@@ -121,11 +380,11 @@ img.emoji {
           <div id="tabs0"> 
             <ul class="menu0" id="menu0"> 
               <li><a href="artistCenter.jsp" >个人信息</a></li> 
-              <li class="hover" ><a href="artistInfoMoney.jsp">个人账户</a></li> 
+              <li class="hover" ><a href="artistInfoMoney">我的定制</a></li> 
               <li><a href="artistGetAllArtwork">正在售卖</a></li> 
               <li><a href="artistArtworkUpload.jsp">上传作品</a></li>
               <li><a href="artistGetAddress">地址管理</a></li>   
-              <li><a href="artistGetAllOrder">购买记录</a></li>  
+              <li><a href="artistGetAllSellOrder">售卖记录</a></li>  
             </ul> 
             <hr />
           </div>
@@ -134,16 +393,31 @@ img.emoji {
         <!--排序方式（上市时间 更新世家）-->
         
         <div class="container">
-
-              <form action="" id="infoCenter">
-                   
-                  <b>余&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;额：</b><input type="text" id="realname"  name="realName"  disabled="disabled"/><br><br>
+              <div class="auction">
+  
                   
-                  <input type="submit" value="充值" name="" id="tijiao"  class="button"><br><br>
-                      <!--<input type="submit" value="忘记密码" name="" id=""  class="button">-->
-              </form>
+				<c:forEach items='${ auctionListByArtist }' var="auction" varStatus="status">
+					<div class="auctionItem">
+                      <ul>
+                          <li id="artistName"><p>${auction.user.userName }</p></li>
+                          <li id="artworkName"><p>${auction.description }</p></li>
+                          <li id="artworkPrice"><p>
+                          			<c:if test="${auction.userState ==1 || auction.userState==1}">
+                          				进行中
+                                    </c:if></p></li>
+                                    <c:if test="${!(auction.userState ==1 || auction.userState==1)}">
+                          				定制完成
+                                    </c:if></p></li>
+                          <li id="artworkState"><p><a href="">查看</a></p></li>
+                      </ul>
+                  	</div>				
+				</c:forEach>
+
+
+              </div>
             
         </div>  
+      
       
 
         <footer data-type="background" data-speed="3" class="clearfix" id="contact"  style="background-image: url('images/user/1.jpg');">

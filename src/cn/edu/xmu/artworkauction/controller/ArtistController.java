@@ -34,11 +34,14 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import cn.edu.xmu.artworkauction.service.ArtistService;
 import cn.edu.xmu.artworkauction.service.ArtworkService;
+import cn.edu.xmu.artworkauction.service.AuctionService;
 import cn.edu.xmu.artworkauction.service.OrderService;
 import cn.edu.xmu.artworkauction.entity.Address;
 import cn.edu.xmu.artworkauction.entity.Artist;
 import cn.edu.xmu.artworkauction.entity.Artwork;
+import cn.edu.xmu.artworkauction.entity.Auction;
 import cn.edu.xmu.artworkauction.entity.Order;
+import cn.edu.xmu.artworkauction.entity.OrderLineItem;
 import cn.edu.xmu.artworkauction.entity.User;
 
 
@@ -56,6 +59,8 @@ public class ArtistController {
 	private OrderService orderService;
 	@Resource
 	private ArtworkService artworkService;
+	@Resource
+	private AuctionService auctionService;
 
 	private List<Artist> allArtistList;
 	
@@ -157,14 +162,22 @@ public class ArtistController {
 		}
 	}
 	
+	//获取所有的售出的记录
+	@RequestMapping("/artistGetAllSellOrder")
+	public ModelAndView artistGetAllSellOrder(HttpServletRequest request,Model model){
+		Artist artist=(Artist)request.getSession().getAttribute("user");
+		List<OrderLineItem> orderItemList=artistService.getAllOrderLineItemsByArtist(artist);
+		request.getSession().setAttribute("orderItemList", orderItemList);
+		ModelAndView modelAndView =new ModelAndView("artistSellRecord");
+		return modelAndView;
+	}
+	
 	//获取所有的购买订单
 	@RequestMapping("/artistGetAllOrder")
 	public ModelAndView artistGetAllOrder(HttpServletRequest request,Model model){
 		User user=(User)request.getSession().getAttribute("user");
-		System.out.println(user.getUserName());
 		List<Order> orderList=orderService.findAllOrderByUser(user);
 		request.getSession().setAttribute("orderList", orderList);
-		System.out.println(orderList.get(0).getOrderDate());
 		ModelAndView modelAndView =new ModelAndView("artistRecord");
 		return modelAndView;
 	}
@@ -321,4 +334,12 @@ public class ArtistController {
 		return modelAndView;
 	}
 	
+	@RequestMapping("artistInfoMoney")
+	public ModelAndView artistInfoMoney(HttpServletRequest request,Model model)
+	{
+		Artist artist=(Artist)request.getSession().getAttribute("user");
+		List<Auction> auctions=auctionService.getAllAuctionByArtist(artist);
+		request.getSession().setAttribute("auctionListByArtist", auctions);
+		return new ModelAndView("artistInfoMoney");
+	}
 }

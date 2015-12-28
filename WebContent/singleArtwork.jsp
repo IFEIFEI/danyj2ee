@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <!--[if IE 8]>    <html class="ie8" lang="en"> <![endif]-->
 <!--[if gt IE 8]><!--><html lang="en-US" ><!--<![endif]-->
@@ -249,13 +250,13 @@ img.emoji {
 							    		<p class="p1">已停止售卖</p>
 	                        		</c:if>
 							        <c:if test="${singleArtwork.inventory!=0}">
-							    		<p class="p1">商城售卖/${singleArtwork.inventory}可选</p>
+							    		<p class="p1">商城售卖&nbsp;/&nbsp;${singleArtwork.inventory}&nbsp;件可选</p>
 	                        		</c:if>
 							    </div>
 			
 			                    <div class="clearfix">
 				                    <div class="price clearfix">
-								        <div class="inner clearfix"><span class="cost">${singleArtwork.price}</span></div>
+								        <div class="inner clearfix"><span class="cost">￥${singleArtwork.price}</span></div>
 					                    <p class="gst"></p>
 				                    </div>
                                 

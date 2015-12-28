@@ -8,6 +8,7 @@ import java.util.List;
 
 import cn.edu.xmu.artworkauction.entity.Address;
 import cn.edu.xmu.artworkauction.entity.Artwork;
+import cn.edu.xmu.artworkauction.entity.OrderLineItem;
 /**
  * @author Y
  *
@@ -21,4 +22,6 @@ public interface ArtistService {
 	public boolean deleteOneArtwork(String artworkId);
 	public List<Artist> getAllArtist();
 	public List<Artwork> getArtistArtworks(Artist artist);
+	
+	public List<OrderLineItem> getAllOrderLineItemsByArtist(Artist artist);
 }

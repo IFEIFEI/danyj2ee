@@ -124,7 +124,7 @@ img.emoji {
         inputNode.setAttribute("class","button");
         form.appendChild(brNode);
         form.appendChild(brNode);
-    }
+    });
   }
 </script>
 
@@ -198,23 +198,11 @@ img.emoji {
     <div id="content">
       <div id="dynamic" class="page page-id-96 page-template page-template-_templates page-template-shows page-template-_templatesshows-php">
 
-        <div class="container" id="1">    
-            <div class="artistInformation">
-                 <div class="artistTouxiang">
-                    <img src="images/user/huangjingzheTouxiang.jpg">
-                 </div>
-                 <div class="artistText"> 
-                    <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h1>
-                    <h2>黄京哲</h2>
-                    <h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h3>
-                    <h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h4>       
-                 </div>
-            </div> 
-        </div>
+        <%@include file="tpl/artistInfo.jsp" %>
 
         <div class="container" id="3">
         <hr/>
-          <form action="" method="post" accept-charset="utf-8" class="examples part">
+          <form action="artistAutionOrder" method="post" accept-charset="utf-8" class="examples part">
             
             <!--此处应该自动生成种类-->
                 <div class="fields">
@@ -229,6 +217,7 @@ img.emoji {
                                     </select>
                                </span>
                 </div>
+                <input type="submit" value="提交"  id="tijiao"  class="button"><br><br>
             </form>
             </div>
 

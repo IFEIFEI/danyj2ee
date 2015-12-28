@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <!--[if IE 8]>    <html class="ie8" lang="en"> <![endif]-->
@@ -147,19 +148,7 @@ img.emoji {
     <div id="content">
       <div id="dynamic" class="page page-id-96 page-template page-template-_templates page-template-shows page-template-_templatesshows-php">
 
-        <div class="container" id="1">    
-            <div class="artistInformation">
-                 <div class="artistTouxiang">
-                    <img src="images/user/huangjingzheTouxiang.jpg">
-                 </div>
-                 <div class="artistText"> 
-                    <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h1>
-                    <h2>黄京哲</h2>
-                    <h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h3>
-                    <h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h4>       
-                 </div>
-            </div> 
-        </div>
+        <%@include file="tpl/artistInfo.jsp" %>
 
         <div class="container" id="2">
             <hr/> 
@@ -171,22 +160,16 @@ img.emoji {
         <div class="container">
         
 
-              <form action="" id="infoCenter">
+              <form action="completeOneAuction" id="infoCenter">
 
                   <b>总&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;价:</b><input type="text" id="money"  name="money"/><br><br>
+				
 
-                  <!--可编辑-->
-                  <b>1 期付款:</b><input type="text" id="money1"  name="money1"/><br><br>
-
-                  <b>付款时间:</b><input type="date" name="paytime1" id="paytime1"/><br><br>
-
-                  <b>2 期付款:</b><input type="text" id="money2"  name="money2"/><br><br>
-
-                  <b>付款时间:</b><input type="date" name="paytime2" id="paytime2"/><br><br>
-
-                  <b>3 期付款:</b><input type="text" id="money3"  name="money3"/><br><br>
-
-                  <b>付款时间:</b><input type="date" name="paytime3" id="paytime3"/><br><br>
+					<c:forEach items='${ designingAuction.auctionItems }' var="auctionItem" varStatus="status">
+							<b>${ auctionItem.description }&nbsp;期付款:</b><input type="text" id="money${ auctionItem.description }"  name="money${ auctionItem.description }"/><br><br>	
+							<b>付款时间:</b><input type="date" name="paytime${ auctionItem.description }" id="paytime${ auctionItem.description }" placeholder="2015-1-1" /><br><br>		
+					</c:forEach>
+                  
 
                   <!--可编辑-->
                   <b>具体描述:</b><textarea name="description" id="description"></textarea><br><br>

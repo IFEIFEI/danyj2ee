@@ -83,7 +83,7 @@ fieldset.search {
 <link rel='stylesheet' id='style-css'  href='css/select.css' type='text/css' media='all' />
 	</head>
 
-	<body>
+	<body >
 
 		
 		<header>

@@ -157,33 +157,9 @@ img.emoji {
     <div id="content">
       <div id="dynamic" class="page page-id-96 page-template page-template-_templates page-template-shows page-template-_templatesshows-php">
 
-        <div class="container">    
-            <div class="artistInformation">
-                 <div class="artistTouxiang">
-                    <img src="images/user/${user.imageURL }">
-                 </div>
-                 <div class="artistText"> 
-                    <h1>${user.realName }</h1>
-                    <h2>${user.birthday.year },${user.country }</h2>
-                    <h3>${user.addresses[0].province }，${user.addresses[0].country }</h3>
-                    <h4>${user.education }</h4>       
-                 </div>
-            </div> 
-        </div>
-
-        <div class="container">
-          <div id="tabs0"> 
-            <ul class="menu0" id="menu0"> 
-              <li class="hover" ><a href="artistCenter.jsp" >个人信息</a></li> 
-              <li><a href="artistInfoMoney">我的定制</a></li> 
-              <li><a href="artistGetAllArtwork">正在售卖</a></li> 
-              <li><a href="artistArtworkUpload.jsp">上传作品</a></li>
-              <li><a href="artistGetAddress">地址管理</a></li>   
-              <li><a href="artistGetAllSellOrder">售卖记录</a></li>  
-            </ul> 
-            <hr />
-          </div>
-        </div>
+        <%@include file="tpl/artistInfo.jsp" %>
+		<%@include file="tpl/artistMenu.jsp" %>
+        
         <!--此处放tab  艺术品的分类-->
         <!--排序方式（上市时间 更新世家）-->
         

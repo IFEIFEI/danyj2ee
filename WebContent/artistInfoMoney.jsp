@@ -362,20 +362,8 @@ img.emoji {
     <div id="content">
       <div id="dynamic" class="page page-id-96 page-template page-template-_templates page-template-shows page-template-_templatesshows-php">
 
-       <div class="container">    
-            <div class="artistInformation">
-                 <div class="artistTouxiang">
-                    <img src="images/user/${user.imageURL }">
-                 </div>
-                 <div class="artistText"> 
-                    <h1>${user.realName }</h1>
-                    <h2>${user.birthday.year },${user.country }</h2>
-                    <h3>${user.addresses[0].province }，${user.addresses[0].country }</h3>
-                    <h4>${user.education }</h4>       
-                 </div>
-            </div> 
-        </div>
-
+      <%@include file="tpl/artistInfo.jsp" %>
+      
         <div class="container">
           <div id="tabs0"> 
             <ul class="menu0" id="menu0"> 
@@ -401,14 +389,17 @@ img.emoji {
                       <ul>
                           <li id="artistName"><p>${auction.user.userName }</p></li>
                           <li id="artworkName"><p>${auction.description }</p></li>
-                          <li id="artworkPrice"><p>
-                          			<c:if test="${auction.userState ==1 || auction.userState==1}">
-                          				进行中
-                                    </c:if></p></li>
-                                    <c:if test="${!(auction.userState ==1 || auction.userState==1)}">
-                          				定制完成
-                                    </c:if></p></li>
-                          <li id="artworkState"><p><a href="">查看</a></p></li>
+                          <li id="artworkPrice">
+                          			<c:if test="${auction.artistState !=1 || auction.userState !=1}">
+                          				<p>进行中</p>
+                                    </c:if>
+                                    <c:if test="${auction.artistState ==1 && auction.userState==1}">
+                          				<p>定制完成</p>
+                                    </c:if></li>
+                          <c:if test="${auction.artistState ==1 && auction.userState==1}">
+                          		<li id="artworkState"><p><a href="artistAutionDesign?id=${auction.id}">查看</a></p></li>
+                          </c:if></li>
+                          
                       </ul>
                   	</div>				
 				</c:forEach>

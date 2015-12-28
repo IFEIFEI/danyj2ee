@@ -8,6 +8,7 @@ import java.text.SimpleDateFormat;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -36,12 +37,15 @@ import cn.edu.xmu.artworkauction.service.ArtistService;
 import cn.edu.xmu.artworkauction.service.ArtworkService;
 import cn.edu.xmu.artworkauction.service.AuctionService;
 import cn.edu.xmu.artworkauction.service.OrderService;
+import cn.edu.xmu.artworkauction.utils.AuctionState;
 import cn.edu.xmu.artworkauction.entity.Address;
 import cn.edu.xmu.artworkauction.entity.Artist;
 import cn.edu.xmu.artworkauction.entity.Artwork;
 import cn.edu.xmu.artworkauction.entity.Auction;
+import cn.edu.xmu.artworkauction.entity.AuctionItem;
 import cn.edu.xmu.artworkauction.entity.Order;
 import cn.edu.xmu.artworkauction.entity.OrderLineItem;
+import cn.edu.xmu.artworkauction.entity.Payment;
 import cn.edu.xmu.artworkauction.entity.User;
 
 
@@ -340,6 +344,66 @@ public class ArtistController {
 		Artist artist=(Artist)request.getSession().getAttribute("user");
 		List<Auction> auctions=auctionService.getAllAuctionByArtist(artist);
 		request.getSession().setAttribute("auctionListByArtist", auctions);
+		return new ModelAndView("artistInfoMoney");
+	}
+	
+	@RequestMapping("artistAutionDesign")
+	public ModelAndView artistAutionDesign(HttpServletRequest request,Model model)
+	{
+		String auctionId= request.getParameter("id");
+		Auction auction=(((List<Auction>) request.getSession().getAttribute("auctionListByArtist"))
+				.stream()
+				.filter(a->a.getId()==Integer.parseInt(auctionId))
+				.collect(Collectors.toList()))
+				.get(0);
+		request.getSession().setAttribute("designingAuction", auction);
+		return new ModelAndView("auctionDesign");
+	}
+	
+	@RequestMapping("artistAutionOrder")
+	public ModelAndView artistAutionOrder(HttpServletRequest request,Model model)
+	{
+		String paymentTime=request.getParameter("kind");
+		List<AuctionItem> auctionItems=new ArrayList<>();
+		for(int i=0;i<Integer.parseInt(paymentTime);i++)
+		{
+			String id=(new Integer(i)).toString();
+			AuctionItem auctionItem=new AuctionItem();
+			auctionItem.setDescription(id);
+			auctionItem.setImageURL("payment"+id);
+			auctionItems.add(auctionItem);
+		}
+		Auction auction=(Auction)request.getSession().getAttribute("designingAuction");
+		auction.setAuctionItems(auctionItems);
+		request.getSession().setAttribute("designingAuction",auction);
+		return new ModelAndView("auctionOrder");
+	}
+	
+	
+	//TODO: 这里的completeOneAuction可能需要完善来对应不同的分期付款
+	@RequestMapping("completeOneAuction")
+	public ModelAndView completeOneAuction(HttpServletRequest request,Model model)
+	{
+		Auction auction=(Auction)request.getSession().getAttribute("designingAuction");
+		List<AuctionItem> auctionItems=auction.getAuctionItems();
+		for(int i=0;i<auctionItems.size();i++)
+		{
+			String money=request.getParameter("money"+i);
+			String paytime=request.getParameter("paytime"+i);
+			String[] paytimes=paytime.split("-");
+			Date data=new Date();
+			data.setYear(Integer.parseInt(paytimes[0])-1900);
+			data.setMonth(Integer.parseInt(paytimes[1]));
+			data.setDate(Integer.parseInt(paytimes[2]));
+			Payment payment=new Payment();
+			payment.setMoney(Double.parseDouble(money));
+			payment.setPaymentDate(data);
+			auctionItems.get(i).setPayment(payment);
+		}
+		//@TODO: 这里应该将页面修改成像用户那样处理description
+		//auction.setDescription(request.getParameter("description"));
+		auction.setArtistState(AuctionState.approved);
+		auctionService.updateAuctionInfo(auction);
 		return new ModelAndView("artistInfoMoney");
 	}
 }

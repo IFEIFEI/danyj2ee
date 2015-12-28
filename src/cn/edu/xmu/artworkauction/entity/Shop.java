@@ -56,7 +56,6 @@ public class Shop implements java.io.Serializable{
 		this.artworks=artworks;
 	}
 	
-	
 	@OneToOne(targetEntity=Artist.class, cascade = {CascadeType.ALL},fetch=FetchType.LAZY)
 	public Artist getArtist() {
 		return artist;

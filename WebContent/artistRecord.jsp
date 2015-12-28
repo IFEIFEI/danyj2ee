@@ -115,19 +115,7 @@ img.emoji {
     <div id="content">
       <div id="dynamic" class="page page-id-96 page-template page-template-_templates page-template-shows page-template-_templatesshows-php">
 
-        <div class="container">    
-            <div class="artistInformation">
-                 <div class="artistTouxiang">
-                    <img src="images/user/${user.imageURL }">
-                 </div>
-                 <div class="artistText"> 
-                    <h1>${user.realName }</h1>
-                    <h2>${user.birthday.year },${user.country }</h2>
-                    <h3>${user.addresses[0].province }，${user.addresses[0].country }</h3>
-                    <h4>${user.education }</h4>       
-                 </div>
-            </div> 
-        </div>
+        <%@include file="tpl/artistInfo.jsp" %>
 
         <div class="container">
           <div id="tabs0"> 

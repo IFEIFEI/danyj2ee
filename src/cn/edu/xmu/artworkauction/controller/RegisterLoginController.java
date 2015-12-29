@@ -41,6 +41,12 @@ public class RegisterLoginController {
 		return modelAndView;
 	}
 	
+	@RequestMapping("/userLogout")
+	public ModelAndView userLogout(HttpServletRequest request,Model model){
+		request.getSession().setAttribute("user", null);
+		return new ModelAndView("index");
+	}
+	
 	@RequestMapping ("/userLoginByUserName")
 	public ModelAndView userLoginByUserName(HttpServletRequest request)
 	{

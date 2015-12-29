@@ -390,11 +390,11 @@ public class ArtistController {
 		{
 			String money=request.getParameter("money"+i);
 			String paytime=request.getParameter("paytime"+i);
-			String[] paytimes=paytime.split("-");
+			String[] paytimes=paytime.split("/");
 			Date data=new Date();
-			data.setYear(Integer.parseInt(paytimes[0])-1900);
-			data.setMonth(Integer.parseInt(paytimes[1]));
-			data.setDate(Integer.parseInt(paytimes[2]));
+			data.setYear(Integer.parseInt(paytimes[2])-1900);
+			data.setMonth(Integer.parseInt(paytimes[0]));
+			data.setDate(Integer.parseInt(paytimes[1]));
 			Payment payment=new Payment();
 			payment.setMoney(Double.parseDouble(money));
 			payment.setPaymentDate(data);

@@ -167,7 +167,7 @@ img.emoji {
 
 					<c:forEach items='${ designingAuction.auctionItems }' var="auctionItem" varStatus="status">
 							<b>${ auctionItem.description }&nbsp;期付款:</b><input type="text" id="money${ auctionItem.description }"  name="money${ auctionItem.description }"/><br><br>	
-							<b>付款时间:</b><input type="date" name="paytime${ auctionItem.description }" id="paytime${ auctionItem.description }" placeholder="2015-1-1" /><br><br>		
+							<b>付款时间:</b><input type="date" name="paytime${ auctionItem.description }" id="paytime${ auctionItem.description }" placeholder="12/31/2015" /><br><br>		
 					</c:forEach>
                   
 

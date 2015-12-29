@@ -394,7 +394,7 @@ img.emoji {
                           				<p>进行中</p>
                                     </c:if>
                                     <c:if test="${auction.artistState ==1 && auction.userState==1}">
-                          				<p>已完成成</p>
+                          				<p>已完成</p>
                                     </c:if></li>
                           <c:if test="${auction.artistState ==1 && auction.userState==1}">
                           		<li id="artworkState"><p><a href="artistAutionDesign?id=${auction.id}">查看</a></p></li>
